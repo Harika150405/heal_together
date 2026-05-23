@@ -24,7 +24,7 @@ export default function LoginPage() {
       const initGoogle = () => {
         if (window.google) {
           window.google.accounts.id.initialize({
-            client_id: "491481553436-fl571t8heaan3gt6ar7n6lltkvrpgdrs.apps.googleusercontent.com", // REPLACE WITH YOUR ACTUAL GOOGLE CLIENT ID
+            client_id: "491481553436-reigb7rb54coisfmop5j836j2o0lepcc.apps.googleusercontent.com", // REPLACE WITH YOUR ACTUAL GOOGLE CLIENT ID
             callback: handleGoogleLoginCallback
           });
           window.google.accounts.id.renderButton(
