@@ -100,3 +100,4 @@ app.listen(PORT, async () => {
   // Seed the initial communities in DB
   await seedCommunities();
 });
+// Trigger nodemon reload for port cleanup
