@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { API_BASE_URL } from "@/config";
 
 function VerifyOtpContent() {
   const router = useRouter();
@@ -27,8 +28,8 @@ function VerifyOtpContent() {
 
     try {
       const endpoint = mode === "reset" 
-        ? "http://192.168.39.157:3009/api/auth/verify-reset-otp" 
-        : "http://192.168.39.157:3009/api/auth/verify-registration-otp";
+        ? `${API_BASE_URL}/api/auth/verify-reset-otp` 
+        : `${API_BASE_URL}/api/auth/verify-registration-otp`;
 
       const res = await fetch(endpoint, {
         method: "POST",

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Link from "next/link";
+import { API_BASE_URL } from "@/config";
 
 export default function MyCommunitiesPage() {
   const router = useRouter();
@@ -20,7 +21,7 @@ export default function MyCommunitiesPage() {
       }
 
       try {
-        const res = await fetch("http://192.168.39.157:3009/api/chat/my-communities", {
+        const res = await fetch(`${API_BASE_URL}/api/chat/my-communities`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         if (res.ok) {

@@ -21,7 +21,7 @@ export default function ViewStoriesPage() {
 
   const fetchStoriesList = async (authToken) => {
     try {
-      const res = await fetch("http://192.168.39.157:3009/api/stories", {
+      const res = await fetch(`${API_BASE_URL}/api/stories`, {
         headers: { Authorization: `Bearer ${authToken}` }
       });
       if (res.ok) {
@@ -49,7 +49,7 @@ export default function ViewStoriesPage() {
 
   const handleToggleLike = async (storyId) => {
     try {
-      const res = await fetch(`http://192.168.39.157:3009/api/stories/${storyId}/like`, {
+      const res = await fetch(`${API_BASE_URL}/api/stories/${storyId}/like`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -59,8 +59,8 @@ export default function ViewStoriesPage() {
         // Update state locally
         setStories(prev =>
           prev.map(story =>
-            story.id === storyId 
-              ? { ...story, hasLiked: data.liked, likesCount: data.likesCount } 
+            story.id === storyId
+              ? { ...story, hasLiked: data.liked, likesCount: data.likesCount }
               : story
           )
         );
@@ -74,7 +74,7 @@ export default function ViewStoriesPage() {
     if (!window.confirm("Are you sure you want to delete this story?")) return;
 
     try {
-      const res = await fetch(`http://192.168.39.157:3009/api/stories/${storyId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/stories/${storyId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -99,7 +99,7 @@ export default function ViewStoriesPage() {
     if (!editingText.trim()) return;
 
     try {
-      const res = await fetch(`http://192.168.39.157:3009/api/stories/${storyId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/stories/${storyId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -130,7 +130,7 @@ export default function ViewStoriesPage() {
     if (!commentText || !commentText.trim()) return;
 
     try {
-      const res = await fetch(`http://192.168.39.157:3009/api/stories/${storyId}/comment`, {
+      const res = await fetch(`${API_BASE_URL}/api/stories/${storyId}/comment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -146,8 +146,8 @@ export default function ViewStoriesPage() {
         // Append comment locally
         setStories(prev =>
           prev.map(story =>
-            story.id === storyId 
-              ? { ...story, comments: [...story.comments, newComment] } 
+            story.id === storyId
+              ? { ...story, comments: [...story.comments, newComment] }
               : story
           )
         );
@@ -200,15 +200,15 @@ export default function ViewStoriesPage() {
                   </div>
                   {story.name === username && (
                     <div className="d-flex gap-2">
-                      <button 
-                        onClick={() => handleEditClick(story)} 
+                      <button
+                        onClick={() => handleEditClick(story)}
                         className="btn btn-sm btn-outline-secondary"
                         style={{ fontSize: "12px" }}
                       >
                         Edit
                       </button>
-                      <button 
-                        onClick={() => handleDeleteStory(story.id)} 
+                      <button
+                        onClick={() => handleDeleteStory(story.id)}
                         className="btn btn-sm btn-outline-danger"
                         style={{ fontSize: "12px" }}
                       >
@@ -228,14 +228,14 @@ export default function ViewStoriesPage() {
                       onChange={(e) => setEditingText(e.target.value)}
                     />
                     <div className="d-flex gap-2">
-                      <button 
-                        onClick={() => handleSaveEdit(story.id)} 
+                      <button
+                        onClick={() => handleSaveEdit(story.id)}
                         className="btn btn-sm btn-success"
                       >
                         Save
                       </button>
-                      <button 
-                        onClick={() => setEditingStoryId(null)} 
+                      <button
+                        onClick={() => setEditingStoryId(null)}
                         className="btn btn-sm btn-light"
                       >
                         Cancel
@@ -250,8 +250,8 @@ export default function ViewStoriesPage() {
 
                 {/* Like section */}
                 <div className="d-flex align-items-center mb-4">
-                  <button 
-                    onClick={() => handleToggleLike(story.id)} 
+                  <button
+                    onClick={() => handleToggleLike(story.id)}
                     className={`btn btn-sm d-flex align-items-center gap-1 ${story.hasLiked ? "btn-primary" : "btn-outline-primary"}`}
                     style={{ borderRadius: "20px" }}
                   >

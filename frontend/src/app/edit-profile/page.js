@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { API_BASE_URL } from "@/config";
 
 export default function EditProfilePage() {
   const router = useRouter();
@@ -30,7 +31,7 @@ export default function EditProfilePage() {
       }
 
       try {
-        const res = await fetch("http://192.168.39.157:3009/api/auth/profile", {
+        const res = await fetch(`${API_BASE_URL}/api/auth/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -80,7 +81,7 @@ export default function EditProfilePage() {
     setUpdating(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://192.168.39.157:3009/api/auth/profile/update", {
+      const res = await fetch(`${API_BASE_URL}/api/auth/profile/update`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { API_BASE_URL } from "@/config";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -48,7 +49,7 @@ export default function LoginPage() {
   const handleGoogleLoginCallback = async (response) => {
     setLoading(true);
     try {
-      const res = await fetch("http://192.168.39.157:3009/api/auth/google-login", {
+      const res = await fetch(`${API_BASE_URL}/api/auth/google-login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ credential: response.credential })
@@ -83,7 +84,7 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://192.168.39.157:3009/api/auth/login", {
+      const res = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),

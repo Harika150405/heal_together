@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { API_BASE_URL } from "@/config";
 
 export default function NewStoryPage() {
   const router = useRouter();
@@ -23,7 +24,7 @@ export default function NewStoryPage() {
 
     const fetchCommunitiesList = async () => {
       try {
-        const res = await fetch("http://192.168.39.157:3009/api/communities/list");
+        const res = await fetch(`${API_BASE_URL}/api/communities/list`);
         if (res.ok) {
           const list = await res.json();
           setCommunities(list);
@@ -44,7 +45,7 @@ export default function NewStoryPage() {
 
     setLoading(true);
     try {
-      const res = await fetch("http://192.168.39.157:3009/api/stories", {
+      const res = await fetch(`${API_BASE_URL}/api/stories`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

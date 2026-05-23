@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Header from "../../components/Header";
+import { API_BASE_URL } from "@/config";
 
 export default function ChatRoomPage() {
   const router = useRouter();
@@ -56,7 +57,7 @@ export default function ChatRoomPage() {
 
   const fetchMessages = async (authToken) => {
     try {
-      const res = await fetch(`http://192.168.39.157:3009/api/chat/messages?communityName=${encodeURIComponent(groupName)}`, {
+      const res = await fetch(`${API_BASE_URL}/api/chat/messages?communityName=${encodeURIComponent(groupName)}`, {
         headers: { Authorization: `Bearer ${authToken}` }
       });
       if (res.ok) {
@@ -70,7 +71,7 @@ export default function ChatRoomPage() {
 
   const fetchOnlineUsers = async (authToken) => {
     try {
-      const res = await fetch(`http://192.168.39.157:3009/api/chat/online-users?communityName=${encodeURIComponent(groupName)}`, {
+      const res = await fetch(`${API_BASE_URL}/api/chat/online-users?communityName=${encodeURIComponent(groupName)}`, {
         headers: { Authorization: `Bearer ${authToken}` }
       });
       if (res.ok) {
@@ -87,7 +88,7 @@ export default function ChatRoomPage() {
     if (!messageText.trim()) return;
 
     try {
-      const res = await fetch("http://192.168.39.157:3009/api/chat/messages", {
+      const res = await fetch(`${API_BASE_URL}/api/chat/messages`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

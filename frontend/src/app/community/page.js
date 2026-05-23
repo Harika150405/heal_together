@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { API_BASE_URL } from "@/config";
 
 const defaultGroups = [
   { name: 'Diabetes', tagline: 'Stronger every day, one step at a time.', desc: 'A chronic condition that affects how your body turns food into energy. Share tips on management and daily life.', logo: 'diabetes' },
@@ -49,7 +50,7 @@ export default function CommunityPage() {
     // Fetch joined communities
     const fetchJoined = async () => {
       try {
-        const res = await fetch("http://192.168.39.157:3009/api/chat/my-communities", {
+        const res = await fetch(`${API_BASE_URL}/api/chat/my-communities`, {
           headers: { Authorization: `Bearer ${t}` }
         });
         if (res.ok) {
@@ -65,7 +66,7 @@ export default function CommunityPage() {
 
   const handleJoin = async (groupName) => {
     try {
-      const res = await fetch("http://192.168.39.157:3009/api/chat/join", {
+      const res = await fetch(`${API_BASE_URL}/api/chat/join`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

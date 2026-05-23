@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { API_BASE_URL } from "@/config";
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("overview");
@@ -37,7 +38,7 @@ export default function AdminDashboard() {
     setLoading(true);
     try {
       // 1. Fetch Stats
-      const statsRes = await fetch("http://192.168.39.157:3009/api/admin/stats", {
+      const statsRes = await fetch(`${API_BASE_URL}/api/admin/stats`, {
         headers: { "Authorization": `Bearer ${t}` }
       });
       if (statsRes.ok) {
@@ -46,7 +47,7 @@ export default function AdminDashboard() {
       }
 
       // 2. Fetch Users
-      const usersRes = await fetch("http://192.168.39.157:3009/api/admin/users", {
+      const usersRes = await fetch(`${API_BASE_URL}/api/admin/users`, {
         headers: { "Authorization": `Bearer ${t}` }
       });
       if (usersRes.ok) {
@@ -55,7 +56,7 @@ export default function AdminDashboard() {
       }
 
       // 3. Fetch Stories
-      const storiesRes = await fetch("http://192.168.39.157:3009/api/admin/stories", {
+      const storiesRes = await fetch(`${API_BASE_URL}/api/admin/stories`, {
         headers: { "Authorization": `Bearer ${t}` }
       });
       if (storiesRes.ok) {
@@ -75,7 +76,7 @@ export default function AdminDashboard() {
     if (!confirm(`Are you sure you want to change this user's role to ${newRole}?`)) return;
 
     try {
-      const res = await fetch(`http://192.168.39.157:3009/api/admin/users/${userId}/role`, {
+      const res = await fetch(`${API_BASE_URL}/api/admin/users/${userId}/role`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -102,7 +103,7 @@ export default function AdminDashboard() {
     if (!confirm("Are you sure you want to delete this user permanently? This cannot be undone.")) return;
 
     try {
-      const res = await fetch(`http://192.168.39.157:3009/api/admin/users/${userId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/admin/users/${userId}`, {
         method: "DELETE",
         headers: { "Authorization": `Bearer ${token}` }
       });
@@ -126,7 +127,7 @@ export default function AdminDashboard() {
     setSubmittingCommunity(true);
 
     try {
-      const res = await fetch("http://192.168.39.157:3009/api/admin/communities", {
+      const res = await fetch(`${API_BASE_URL}/api/admin/communities`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -162,7 +163,7 @@ export default function AdminDashboard() {
     if (!confirm("Are you sure you want to delete this story? This will also delete any related likes and comments.")) return;
 
     try {
-      const res = await fetch(`http://192.168.39.157:3009/api/admin/stories/${storyId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/admin/stories/${storyId}`, {
         method: "DELETE",
         headers: { "Authorization": `Bearer ${token}` }
       });

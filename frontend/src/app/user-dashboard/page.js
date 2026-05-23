@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Link from "next/link";
+import { API_BASE_URL } from "@/config";
 
 export default function UserDashboard() {
   const [profile, setProfile] = useState(null);
@@ -31,7 +32,7 @@ export default function UserDashboard() {
     setLoading(true);
     try {
       // 1. Fetch Profile Info
-      const profileRes = await fetch("http://192.168.39.157:3009/api/auth/profile", {
+      const profileRes = await fetch(`${API_BASE_URL}/api/auth/profile`, {
         headers: { "Authorization": `Bearer ${t}` }
       });
       if (profileRes.ok) {
@@ -40,7 +41,7 @@ export default function UserDashboard() {
       }
 
       // 2. Fetch Joined Communities
-      const commRes = await fetch("http://192.168.39.157:3009/api/chat/my-communities", {
+      const commRes = await fetch(`${API_BASE_URL}/api/chat/my-communities`, {
         headers: { "Authorization": `Bearer ${t}` }
       });
       if (commRes.ok) {
@@ -49,7 +50,7 @@ export default function UserDashboard() {
       }
 
       // 3. Fetch All Stories and filter by user
-      const storiesRes = await fetch("http://192.168.39.157:3009/api/stories", {
+      const storiesRes = await fetch(`${API_BASE_URL}/api/stories`, {
         headers: { "Authorization": `Bearer ${t}` }
       });
       if (storiesRes.ok) {
