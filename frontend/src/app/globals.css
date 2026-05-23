@@ -1,0 +1,936 @@
+/* globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* ==========================================================================
+   1. LOGIN THEME (login-style.css)
+   ========================================================================== */
+.login-theme {
+  min-height: 100vh;
+  background-color: #D071F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-theme .center {
+  width: 400px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.login-theme .center h1 {
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+  border-bottom: 1px solid silver;
+  font-size: 28px;
+  color: #333;
+}
+
+.login-theme .form {
+  padding: 20px;
+  text-align: center;
+}
+
+.login-theme .textfield {
+  width: 100%;
+  height: 50px; 
+  font-size: 18px;
+  border: 2px solid #D071F9;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  margin: 10px 0;
+  outline: none;
+}
+
+.login-theme .btn {
+  width: 100%;
+  height: 50px;
+  background-color: #D071F9;
+  border-radius: 5px;
+  font-size: 20px;
+  margin: 15px 0 10px 0;
+  color: white;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.login-theme .btn:hover {
+  background-color: purple;
+}
+
+.login-theme .forgetpass {
+  font-size: 16px;
+  padding: 4px 0;
+  margin: 3px;
+  text-align: right;
+}
+
+.login-theme .link {
+  text-decoration: none;
+  color: #0a63d8;
+}
+
+.login-theme .signup {
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+@media(max-width: 470px) {
+  .login-theme .center {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   2. FORM THEME (form-style.css)
+   ========================================================================== */
+.form-theme {
+  min-height: 100vh;
+  background-color: #D071F9;
+  padding: 20px 10px;
+}
+
+.form-theme .container {
+  max-width: 500px;
+  width: 100%;
+  background-color: white;
+  margin: 20px auto;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.form-theme .container .form {
+  width: 100%;
+}
+
+.form-theme .container .title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #D071F9;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.form-theme .container .form .input_field {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.form-theme .container .form .input_field label {
+  width: 200px;
+  margin-right: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.form-theme .container .form .input_field .input,
+.form-theme .container .form .input_field .textarea {
+  width: 100%;
+  outline: none;
+  border: 1px solid #D071F9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.5s ease;
+}
+
+.form-theme .container .form .input_field .textarea {
+  resize: none;
+  height: 70px;
+}
+
+.form-theme .container .form .input_field .selectbox {
+  position: relative;
+  width: 100%;
+  height: 37px;
+}
+
+.form-theme .container .form .input_field .selectbox select {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #D071F9;
+  appearance: none;
+  border-radius: 3px;
+  outline: none;
+  padding: 5px;
+  background: white;
+}
+
+.form-theme .container .form .input_field .selectbox:before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  border: 6px solid transparent;
+  border-top-color: #D071F9;
+  pointer-events: none;
+}
+
+.form-theme .container .form .input_field .input:focus,
+.form-theme .container .form .input_field .textarea:focus,
+.form-theme .container .form .input_field select:focus {
+  border: 1px solid purple;
+}
+
+.form-theme .container .form .input_field p {
+  font-size: 14px;
+  color: #757575;
+  margin-left: 10px;
+}
+
+.form-theme .container .form .input_field .check {
+  width: 15px;
+  height: 15px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.form-theme .container .form .input_field .check input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.form-theme .container .form .input_field .check .checkmark {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #D071F9;
+  display: block;
+  position: relative;
+}
+
+.form-theme .container .form .input_field .check .checkmark:before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  width: 3px;
+  height: 7px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  display: none;
+}
+
+.form-theme .container .form .input_field .check input[type="checkbox"]:checked ~ .checkmark {
+  background: #D071F9;
+}
+
+.form-theme .container .form .input_field .check input[type="checkbox"]:checked ~ .checkmark:before {
+  display: block;
+}
+
+.form-theme .container .form .input_field .btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background: #D071F9;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+  text-transform: uppercase;
+}
+
+.form-theme .container .form .input_field .btn:hover {
+  background: purple;
+}
+
+.form-theme .container .form .input_field:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 420px) {
+  .form-theme .container .form .input_field {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .form-theme .container .form .input_field label {
+    margin-bottom: 5px;
+  }
+}
+
+.form-theme .container .title {
+  color: #8A2BE2;
+}
+
+.form-theme .container.success {
+  border: 2px solid #8A2BE2;
+}
+
+.form-theme .back-link {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #0a63d8;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   3. HOME THEME (style.css)
+   ========================================================================== */
+.home-theme {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.home-theme .head {
+  width: 100%;
+}
+
+.home-theme .head header {
+  position: fixed;   
+  top: 0;
+  left: 0;
+  width: 100%;       
+  z-index: 1000;     
+  background-color: white;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.home-theme #myCarousel {
+  margin-top: 85px; 
+  height: 82vh;
+}
+
+.home-theme #myCarousel .carousel-inner {
+  height: 82vh;
+}
+
+.home-theme #myCarousel .carousel-item {
+  height: 82vh;
+  position: relative;
+}
+
+.home-theme #myCarousel .carousel-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 100%);
+  z-index: 1;
+}
+
+.home-theme #myCarousel .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-theme .carousel-caption {
+  position: absolute;
+  bottom: 22%;
+  left: 8%;
+  right: 8%;
+  z-index: 10;
+  color: white;
+  text-align: left;
+  text-shadow: none;
+}
+
+.home-theme .carousel-caption h2 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1.25;
+  background: linear-gradient(90deg, #ffffff, #f3e9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  max-width: 800px;
+}
+
+.home-theme .carousel-caption h4 {
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-bottom: 30px;
+  color: #e3d6ff;
+  max-width: 700px;
+}
+
+.home-theme .carousel-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #b196ff, #9d84ff);
+  color: white;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(157, 132, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.home-theme .carousel-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(157, 132, 255, 0.6);
+  background: linear-gradient(135deg, #c3afff, #a992ff);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .home-theme #myCarousel,
+  .home-theme #myCarousel .carousel-inner,
+  .home-theme #myCarousel .carousel-item {
+    height: 80vh;
+  }
+  .home-theme .carousel-caption {
+    bottom: 12%;
+    left: 4%;
+    right: 4%;
+    text-align: center;
+  }
+  .home-theme .carousel-caption h2 {
+    font-size: 2.2rem;
+  }
+  .home-theme .carousel-caption h4 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+}
+
+/* Steps Section styling */
+.home-theme .section-header {
+  text-align: center;
+  margin: 80px 0 45px 0;
+  padding: 0 20px;
+}
+
+.home-theme .section-header h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.home-theme .section-header p {
+  font-size: 1.15rem;
+  color: #7f8c8d;
+}
+
+.home-theme .steps-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.home-theme .step-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px 30px;
+  width: 320px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(157, 132, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.home-theme .step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(157, 132, 255, 0.15);
+}
+
+.home-theme .step-num {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #b196ff, #9d84ff);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(157, 132, 255, 0.3);
+}
+
+.home-theme .step-icon {
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.home-theme .step-card h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.home-theme .step-card p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Stats Section */
+.home-theme .stats-section {
+  background: linear-gradient(135deg, #f9f5ff, #f3e9ff);
+  padding: 70px 20px;
+  margin-top: 80px;
+  border-top: 1px solid rgba(157, 132, 255, 0.15);
+  border-bottom: 1px solid rgba(157, 132, 255, 0.15);
+}
+
+.home-theme .stats-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.home-theme .stat-item {
+  text-align: center;
+  min-width: 200px;
+}
+
+.home-theme .stat-item h3 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, #9d84ff, #b196ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-theme .stat-item p {
+  font-size: 1.1rem;
+  color: #5c4b7d;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* CTA styling */
+.home-theme .home-cta {
+  text-align: center;
+  padding: 100px 20px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.home-theme .home-cta h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 35px;
+  line-height: 1.35;
+}
+
+.home-theme .cta-btn {
+  display: inline-block;
+  padding: 15px 40px;
+  background: linear-gradient(135deg, #b196ff, #9d84ff);
+  color: white;
+  font-weight: 600;
+  font-size: 1.15rem;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 5px 18px rgba(157, 132, 255, 0.45);
+  transition: all 0.3s ease;
+}
+
+.home-theme .cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(157, 132, 255, 0.6);
+  background: linear-gradient(135deg, #c3afff, #a992ff);
+  color: white;
+}
+
+.home-theme footer {
+  background-color: rgb(222, 236, 236);
+  padding: 30px;
+  text-align: center;
+  margin-top: auto;
+}
+
+.home-theme footer a {
+  text-decoration: none;
+  color: #000;
+}
+
+.home-theme footer a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   4. COMMUNITY THEME (community_style.css)
+   ========================================================================== */
+.community-theme {
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.community-theme h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.community-theme p {
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+}
+
+.community-theme .groups-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.community-theme .group-card {
+  width: 300px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.community-theme .group-card:hover {
+  transform: translateY(-5px);
+}
+
+.community-theme .group-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+.community-theme .group-card h3 {
+  color: #34495e;
+  margin-bottom: 10px;
+}
+
+.community-theme .group-card p {
+  color: #7f8c8d;
+  margin-bottom: 15px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.community-theme .tagline {
+  font-style: italic;
+  color: #1E90FF !important;
+  margin: 5px 0;
+}
+
+.community-theme .join-btn {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.community-theme .join-btn:hover {
+  background-color: #229954;
+}
+
+@media (max-width: 768px) {
+  .community-theme .groups-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .community-theme .group-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* ==========================================================================
+   5. CHAT THEME (chat/style.css)
+   ========================================================================== */
+.chat-theme {
+  :root {
+    --bg1: #f7f0ff;
+    --bg2: #edd8ff;
+    --accent1: #9B5DE5;
+    --accent2: #8338EC;
+    --me-bubble: linear-gradient(135deg,#9B5DE5,#8338EC);
+    --other-bubble: #ffffff;
+    --border: #e2ccff;
+    --muted: #4e3f73;
+  }
+  
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f7f0ff, #edd8ff);
+  padding: 20px;
+}
+
+.chat-theme .wrap {
+  width: 100%;
+  max-width: 1200px;
+  height: 86vh;
+  border-radius: 18px;
+  background: #fffefcde;
+  box-shadow: 0 10px 30px rgba(100,75,150,0.15);
+  display: flex;
+  overflow: hidden;
+}
+
+.chat-theme .sidebar {
+  width: 24%;
+  min-width: 220px;
+  padding: 24px;
+  background: #f4edff;
+  border-right: 1px solid #e3d6ff;
+}
+
+.chat-theme .sidebar h2 {
+  margin: 0 0 14px;
+  color: #8338EC;
+  font-size: 20px;
+}
+
+.chat-theme .online-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chat-theme .online-list li {
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: #f5ebff;
+  color: #8338EC;
+  font-weight: 600;
+}
+
+.chat-theme .chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-theme .chat-header {
+  padding: 16px;
+  text-align: center;
+  background: linear-gradient(90deg, #9B5DE5, #8338EC);
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.chat-theme .chat-main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: linear-gradient(180deg,#fff,#faf7ff);
+}
+
+.chat-theme .msg-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-theme .msg {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(91,63,208,0.06);
+  max-width: 60%;
+  word-wrap: break-word;
+  margin-bottom: 8px;
+}
+
+.chat-theme .msg .who {
+  font-size: 13px;
+  color: #5c4b7d;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.chat-theme .msg .txt {
+  white-space: pre-wrap;
+  line-height: 1.35;
+}
+
+.chat-theme .msg .time {
+  font-size: 11px;
+  color: #000000;
+  margin-top: 6px;
+  text-align: right;
+}
+
+.chat-theme .other {
+  align-self: flex-start;
+  background: #ffffff;
+  border: 1px solid #e2ccff;
+  color: #443563;
+  border-bottom-left-radius: 4px;
+}
+
+.chat-theme .me {
+  align-self: flex-end;
+  background: linear-gradient(135deg,#9B5DE5,#8338EC);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-theme .chat-input {
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border-top: 1px solid #e2ccff;
+  background: #faf5ff;
+}
+
+.chat-theme .chat-input input[type="text"] {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 24px;
+  border: 1px solid #d8cfff;
+  font-size: 15px;
+  outline: none;
+  background: white;
+  min-width: 0;
+}
+
+.chat-theme .chat-input button {
+  background: linear-gradient(90deg, #9B5DE5, #8338EC);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(131,56,236,0.25);
+}
+
+.chat-theme .system {
+  align-self: center;
+  background: rgba(255,255,255,0.7);
+  color: #5c4b7d;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 600;
+}
+
+@media (max-width:880px) {
+  .chat-theme .wrap {
+    width: 98%;
+    height: 94vh;
+  }
+  .chat-theme .sidebar {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   6. STATIC PAGES THEME (page1_style.css)
+   ========================================================================== */
+.static-page {
+  padding-top: 80px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.static-page header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.static-page .content {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.static-page footer {
+  background-color: rgb(222, 236, 236);
+  padding: 30px 0 10px 0;
+  text-align: center;
+  color: black;
+  margin-top: auto;
+}
+
+.static-page .footer-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 160px;
+  margin-bottom: 20px;
+}
+
+.static-page .footer-section {
+  min-width: 150px;
+  text-align: left;
+}
+
+.static-page .footer-section a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.static-page .footer-section a:hover {
+  color: #042c54;
+}
